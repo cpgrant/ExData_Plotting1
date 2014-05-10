@@ -12,7 +12,8 @@ epc1$DateTime <- paste(epc1$Date, epc1$Time)
 epc1$DateTime <- strptime(epc1$DateTime, format="%d/%m/%Y %H:%M:%S")
 
 # Create plot and save as png
-png(filename = "plot4.png", width = 480, height = 480)
+#png(filename = "plot4.png", width = 480, height = 480)
+png(filename = "plot4.png")
 par(mfrow = c(2,2))
 plot(epc1$DateTime, as.numeric(epc1$Global_active_power), type="l", xlab = "", ylab = "Global Active Power")
 plot(epc1$DateTime, as.numeric(epc1$Voltage), type="l", xlab="datetime", ylab="Voltage")

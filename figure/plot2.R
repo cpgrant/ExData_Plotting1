@@ -12,7 +12,8 @@ epc1$DateTime <- paste(epc1$Date, epc1$Time)
 epc1$DateTime <- strptime(epc1$DateTime, format="%d/%m/%Y %H:%M:%S")
 
 # Create plot and save as png
-png(filename = "plot2.png", width = 480, height = 480)
+#png(filename = "plot2.png", width = 480, height = 480)
+png(filename = "plot2.png")
 plot(epc1$DateTime, as.numeric(epc1$Global_active_power),
      type="l",
      xlab = "",
