@@ -7,15 +7,18 @@ epc <- read.table("household_power_consumption.txt", sep=";", header=TRUE, strin
 #Only use data from 2007-02-01 and 2007-02-02
 epc1 <- subset(epc, epc$Date == "1/2/2007" | epc$Date == "2/2/2007")
 
-# Create DateTime column
+# Create a DateTime column
 epc1$DateTime <- paste(epc1$Date, epc1$Time)
 epc1$DateTime <- strptime(epc1$DateTime, format="%d/%m/%Y %H:%M:%S")
 
-# Create plot and save as png
-#png(filename = "plot2.png", width = 480, height = 480)
-png(filename = "plot2.png")
+# Construct the plot and save it to a PNG file with a width of 480 pixels and a height of 480 pixels
+# The default size is width = 480, height = 480
+# Please note that the reference plot has a transparent background
+# bg = "transparent" specifies a transparent background 
+
+png(filename = "plot2.png", bg = "transparent")
 plot(epc1$DateTime, as.numeric(epc1$Global_active_power),
      type="l",
      xlab = "",
-     ylab = "Global Active Power (kilowats)")
+     ylab = "Global Active Power (kilowatts)")
 dev.off()

@@ -11,9 +11,12 @@ epc1 <- subset(epc, epc$Date == "1/2/2007" | epc$Date == "2/2/2007")
 epc1$DateTime <- paste(epc1$Date, epc1$Time)
 epc1$DateTime <- strptime(epc1$DateTime, format="%d/%m/%Y %H:%M:%S")
 
-# Create plot and save as png
-#png(filename = "plot4.png", width = 480, height = 480)
-png(filename = "plot4.png")
+# Construct the plot and save it to a PNG file with a width of 480 pixels and a height of 480 pixels
+# The default size is width = 480, height = 480
+# Please note that the reference plot has a transparent background
+# bg = "transparent" specifies a transparent background 
+
+png(filename = "plot4.png", bg = "transparent")
 par(mfrow = c(2,2))
 plot(epc1$DateTime, as.numeric(epc1$Global_active_power), type="l", xlab = "", ylab = "Global Active Power")
 plot(epc1$DateTime, as.numeric(epc1$Voltage), type="l", xlab="datetime", ylab="Voltage")
